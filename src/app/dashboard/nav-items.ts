@@ -15,6 +15,11 @@ const links: NavItem[] = [
     title: 'Cursos',
     icon: 'school'
   },
+  {
+    path: 'inscripciones',
+    title: 'Inscripciones',
+    icon: 'post_add'
+  },
 ]
 
 export default links;
