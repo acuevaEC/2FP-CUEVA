@@ -3,10 +3,10 @@
     {
       "id": 1,
       "nombre": "Andres",
-      "apellido": "Andres",
-      "email": "a@a.a",
+      "apellido": "Perez",
+      "email": "andres.cueva.c@gmail.com",
       "password": "1234",
-      "token": "asfdjñlaksfasdf345AasdfasdfasdfA4sadf",
+      "token": "asfdjñlaksasdf345AasdfasdfasdfA4saasdfasdf334dsfdf",
       "rol": "admin"
     },
     {
@@ -23,8 +23,8 @@
     {
       "id": 1,
       "nombre": "Angular",
-      "fecha_fin": "2023-04-27T01:27:59.631Z",
-      "fecha_inicio": "2023-04-27T01:27:59.631Z"
+      "fecha_fin": "2024-04-26T05:00:00.000Z",
+      "fecha_inicio": "2023-04-26T05:00:00.000Z"
     },
     {
       "id": 2,
@@ -35,6 +35,12 @@
     {
       "id": 3,
       "nombre": "Desarrollo Web",
+      "fecha_fin": "2023-04-27T01:27:59.631Z",
+      "fecha_inicio": "2023-04-27T01:27:59.631Z"
+    },
+    {
+      "id": 4,
+      "nombre": "Desarrollo Web 2",
       "fecha_fin": "2023-04-27T01:27:59.631Z",
       "fecha_inicio": "2023-04-27T01:27:59.631Z"
     }

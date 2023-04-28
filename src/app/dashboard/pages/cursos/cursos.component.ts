@@ -74,7 +74,10 @@ export class CursosComponent implements OnInit, OnDestroy {
     }
   }
 
-  aplicarFiltros(ev: Event): void {}
+  aplicarFiltros(ev: Event): void {
+    const inputValue = (ev.target as HTMLInputElement)?.value;
+    this.dataSource.filter = inputValue?.trim()?.toLowerCase();
+  }
 
   irAlDetalle(cursoId: number): void {}
 

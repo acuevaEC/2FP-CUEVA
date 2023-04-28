@@ -17,14 +17,16 @@ export class LoginComponent {
   });
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) {
-    console.log(this.activatedRoute.snapshot);
+   // console.log(this.activatedRoute.snapshot);
   }
 
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
+     
     } else {
+      
       this.authService.login(this.loginForm.value as LoginFormValue)
     }
   }

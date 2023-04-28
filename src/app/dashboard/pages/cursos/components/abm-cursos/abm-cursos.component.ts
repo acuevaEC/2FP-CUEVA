@@ -16,7 +16,7 @@ export class AbmCursosComponent {
   cursoForm = new FormGroup({
     nombre: this.nombreControl,
     fecha_inicio: this.fechaInicioControl,
-    fecha_fin: this.fechaInicioControl,
+    fecha_fin: this.fechaFinControl,
   });
 
   constructor(

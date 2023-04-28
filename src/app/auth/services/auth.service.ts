@@ -26,16 +26,7 @@ export class AuthService {
   }
 
   login(formValue: LoginFormValue): void {
-    // const usuario: Usuario = {
-    //   id: 1,
-    //   nombre: 'MOCK',
-    //   apellido: 'USER',
-    //   email: formValue.email,
-    //   role: 'user'
-    // }
-    // localStorage.setItem('auth-user', JSON.stringify(usuario));
-    // this.authUser$.next(usuario);
-    // this.router.navigate(['dashboard']);
+
     this.httpClient.get<Usuario[]>(
       `http://localhost:3000/usuarios`,
       {
@@ -47,6 +38,8 @@ export class AuthService {
       next: (usuarios) => {
         const usuarioAutenticado = usuarios[0];
         if (usuarioAutenticado) {
+          console.log('aca estoy')
+          console.log(usuarioAutenticado.token)
           localStorage.setItem('token', usuarioAutenticado.token)
           this.authUser$.next(usuarioAutenticado);
           this.router.navigate(['dashboard']);
