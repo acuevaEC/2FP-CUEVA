@@ -6,8 +6,8 @@
 
     <img width="50" height="50" src="../../assets/img/foto2.png">
 
-    <p>{{ (authUser$ | async)?.nombre }}</p>
-    <p>{{ (authUser$ | async)?.email }}</p>
+    <p>{{ (authUser$ | async)?.nombre }} {{ (authUser$ | async)?.apellido }}</p>
+    <p>{{ (authUser$ | async)?.email }} </p>
 
 
     <mat-nav-list>

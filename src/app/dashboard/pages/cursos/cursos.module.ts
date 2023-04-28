@@ -39,7 +39,6 @@ import { RouterModule } from '@angular/router';
 
     RouterModule.forChild([
       {
-        // /dashboard/cursos
         path: '',
         component: CursosComponent
       }

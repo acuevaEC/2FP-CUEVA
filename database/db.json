@@ -3,11 +3,11 @@
     {
       "id": 1,
       "nombre": "Andres",
-      "apellido": "Perez",
+      "apellido": "Cuevas",
       "email": "andres.cueva.c@gmail.com",
       "password": "1234",
       "token": "asfdjñlaksasdf345AasdfasdfasdfA4saasdfasdf334dsfdf",
-      "rol": "admin"
+      "rol": "Admin"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "email": "rami.p.c@gmail.com",
       "password": "andres.cueva.c@gmail.com",
       "token": "asfdjñlakssdf345AasdfasdfasdfA4saasdfasdf334dsfdf",
-      "rol": "admin"
+      "rol": "user"
     }
   ],
   "cursos": [
@@ -40,9 +40,9 @@
     },
     {
       "id": 4,
-      "nombre": "Desarrollo Web 2",
-      "fecha_fin": "2023-04-27T01:27:59.631Z",
-      "fecha_inicio": "2023-04-27T01:27:59.631Z"
+      "nombre": "CSS",
+      "fecha_inicio": "2023-04-11T05:00:00.000Z",
+      "fecha_fin": "2024-04-12T05:00:00.000Z"
     }
   ]
 }

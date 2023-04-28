@@ -1,30 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, mergeMap, switchMap, take, tap, filter } from 'rxjs';
-import { CrearCursoPayload, Curso, CursoNuevo } from '../models';
+import { CrearCursoPayload, Curso } from '../models';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment'; 
 
 
-const CURSOS_MOCKS: Curso[] = [
-  {
-    id: 1,
-    nombre: 'Angular',
-    fecha_fin: new Date(),
-    fecha_inicio: new Date(),
-  },
-  {
-    id: 2,
-    nombre: 'Javascript',
-    fecha_fin: new Date(),
-    fecha_inicio: new Date(),
-  },
-  {
-    id: 3,
-    nombre: 'Desarrollo Web',
-    fecha_fin: new Date(),
-    fecha_inicio: new Date(),
-  },
-];
 
 @Injectable({
   providedIn: 'root',
@@ -52,17 +31,8 @@ export class CursosService {
   }
 */
 
-/*
-crearCurso(curso: Curso): Observable<Curso[]> {
 
-  return this.httpClient.post<Curso>('http://localhost:3000/cursos', curso)
-  
-    .pipe(
-      switchMap(() => this.obtenerCursos())
-      
-    );
-}
-*/
+// LISTAR CURSOS //
 obtenerCursos(): Observable<Curso[]> {
   return this.httpClient.get<Curso[]>(`http://localhost:3000/cursos`)
     .pipe(
@@ -70,6 +40,8 @@ obtenerCursos(): Observable<Curso[]> {
       mergeMap(() => this.cursos$.asObservable())
     );
 }
+
+// CREAR CURSO //
   crearCurso(payload: CrearCursoPayload): Observable<Curso[]> {
 
    
@@ -95,7 +67,7 @@ obtenerCursos(): Observable<Curso[]> {
   }
 
 
-
+// EDITAR CURSO //
 
   editarCurso(cursoId: number, actualizacion: Partial<Curso>): Observable<Curso[]> {
     let cursosActualizados: Curso[]=[]

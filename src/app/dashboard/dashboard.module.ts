@@ -28,6 +28,7 @@ import { AdminGuard } from '../auth/guards/admin.guard';
       {
         // http://localhost:XXXX/dashboard/estudiantes
         path: 'estudiantes',
+        
         loadChildren: () => import('./pages/alumnos/alumnos.module').then((m) => m.AlumnosModule)
       },
       {
@@ -36,6 +37,7 @@ import { AdminGuard } from '../auth/guards/admin.guard';
       },
       {
         path: 'inscripciones',
+       
         loadChildren: () => import('./pages/inscripciones/inscripciones.module').then((m) => m.InscripcionesModule),
       }
     ])

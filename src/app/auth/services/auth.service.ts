@@ -22,8 +22,10 @@ export class AuthService {
   ) { }
 
   obtenerUsuarioAutenticado(): Observable<Usuario | null> {
+    //console.log(this.authUser$.value?.apellido)
+    
     return this.authUser$.asObservable();
-  }
+      }
 
   login(formValue: LoginFormValue): void {
 
@@ -38,8 +40,6 @@ export class AuthService {
       next: (usuarios) => {
         const usuarioAutenticado = usuarios[0];
         if (usuarioAutenticado) {
-          console.log('aca estoy')
-          console.log(usuarioAutenticado.token)
           localStorage.setItem('token', usuarioAutenticado.token)
           this.authUser$.next(usuarioAutenticado);
           this.router.navigate(['dashboard']);
