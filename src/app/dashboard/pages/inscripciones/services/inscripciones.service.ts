@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Curso, Alumno, Inscripicion} from '../models';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, take } from 'rxjs';
 
 // CURSOS, ALUMNOS E INSCRIPCIOENS MOCKS //
 
@@ -99,5 +99,49 @@ export class InscripcionesService {
   getInscripciones(): Observable<Inscripicion[]> {
     return this.inscripciones$.asObservable();
   }
+
+  eliminarInscripcion(inscripcionId: number): Observable<Inscripicion[]> {
+    this.inscripciones$.pipe(take(1)).subscribe({
+      next: (inscripciones) => {
+        
+        const inscripcionesActualizados = inscripciones.filter(
+          (inscripcion) => inscripcion.id !== inscripcionId
+        );
+        this.inscripciones$.next(inscripcionesActualizados);
+      },
+      complete: () => {},
+      error: () => {},
+    });
+
+    return this.inscripciones$.asObservable();
+  }
+
+  editarInscripcion(
+    inscripcionId: number,
+    actualizacion: Partial<Inscripicion>
+  ): Observable<Inscripicion[]> {
+    this.inscripciones$.pipe(take(1)).subscribe({
+      next: (inscripciones) => {
+        const inscripcionesActualizados = inscripciones.map((inscripcion) => {
+          if (inscripcion.id === inscripcionId) {
+            return {
+              ...inscripcion,
+              ...actualizacion,
+            };
+          } else {
+            return inscripcion;
+          }
+        });
+        console.log(inscripcionesActualizados)
+
+        this.inscripciones$.next(inscripcionesActualizados);
+      },
+      //complete: () => {},
+      //error: () => {}
+    });
+
+    return this.inscripciones$.asObservable();
+  }
+
   
 }

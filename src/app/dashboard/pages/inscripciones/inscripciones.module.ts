@@ -26,14 +26,10 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
     PipesModule,
     ReactiveFormsModule,
     MatIconModule,
-
-
     MatFormFieldModule,
     MatInputModule,
-
     MatTableModule,
     MatButtonModule,
-
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,

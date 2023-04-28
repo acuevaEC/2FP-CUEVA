@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionesService } from './services/inscripciones.service';
 import { Inscripicion } from './models';
+import { AbmInscripcionesComponent } from './components/abm-inscripciones/abm-inscripciones.component';
 
 @Component({
   selector: 'app-inscripciones',
@@ -18,8 +19,7 @@ export class InscripcionesComponent implements OnInit {
     'id',
     'curso',
     'nombreCompleto',
-    //'fechaInscripcion',
-    'detalle',
+   // 'detalle',
     'editar',
     'eliminar',
   ];
@@ -47,6 +47,36 @@ export class InscripcionesComponent implements OnInit {
         this.dataSource.data = inscripciones;
       },
     });
+  }
+
+  aplicarFiltros(ev: Event): void {
+    const inputValue = (ev.target as HTMLInputElement)?.value;
+    this.dataSource.filter = inputValue?.trim()?.toLowerCase();
+  }
+
+  eliminarInscripcion(insc: Inscripicion): void {
+    this.inscripcionesService.eliminarInscripcion(insc.id);
+  }
+
+  editarInscripcion(inscripcionParaEditar: Inscripicion): void {
+    {
+      const dialog = this.matDialog.open(AbmInscripcionesComponent, {
+        data: {
+          inscripcionParaEditar,
+        },
+      });
+      
+
+      dialog.afterClosed().subscribe((valorDelFormulario) => {
+        if (valorDelFormulario) {
+          this.inscripcionesService.editarInscripcion(
+            inscripcionParaEditar.id,
+            valorDelFormulario
+          );
+          console.log(valorDelFormulario)
+        }
+      });
+    }
   }
 
 }
