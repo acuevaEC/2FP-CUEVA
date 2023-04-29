@@ -101,7 +101,7 @@ export class CursosComponent implements OnInit, OnDestroy {
             });
           });
 
-  })
+  }).unsubscribe();
       
   }
 

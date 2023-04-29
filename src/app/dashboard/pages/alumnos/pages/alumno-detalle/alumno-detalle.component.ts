@@ -15,6 +15,7 @@ export class AlumnoDetalleComponent implements OnDestroy {
 
   alumno: Alumno | undefined;
   inscripciones: Inscripicion[] | undefined = undefined;
+  
 
   private destroyed$ = new Subject()
 

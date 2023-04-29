@@ -22,7 +22,7 @@
   "cursos": [
     {
       "id": 1,
-      "nombre": "Angular",
+      "nombre": "Angular2",
       "fecha_fin": "2024-04-26T05:00:00.000Z",
       "fecha_inicio": "2023-04-26T05:00:00.000Z"
     },
@@ -40,7 +40,7 @@
     },
     {
       "id": 4,
-      "nombre": "CSS",
+      "nombre": "CSS2",
       "fecha_inicio": "2023-04-11T05:00:00.000Z",
       "fecha_fin": "2024-04-12T05:00:00.000Z"
     }

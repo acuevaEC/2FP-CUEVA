@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionesService } from './services/inscripciones.service';
 import { Inscripicion } from './models';
 import { AbmInscripcionesComponent } from './components/abm-inscripciones/abm-inscripciones.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-inscripciones',
@@ -11,10 +12,9 @@ import { AbmInscripcionesComponent } from './components/abm-inscripciones/abm-in
   styleUrls: ['./inscripciones.component.css']
 })
 //
-export class InscripcionesComponent implements OnInit {
+export class InscripcionesComponent implements OnInit, OnDestroy{
   dataSource = new MatTableDataSource();
   inscripciones: Inscripicion[] = [];
-
   displayedColumns = [
     'id',
     'curso',
@@ -34,12 +34,10 @@ export class InscripcionesComponent implements OnInit {
         this.inscripciones = res;
       });
   }
-
-  /*
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
   }
-  */
+
+   
   
   ngOnInit(): void {
     this.inscripcionesService.getInscripciones().subscribe({
@@ -75,7 +73,8 @@ export class InscripcionesComponent implements OnInit {
           );
           console.log(valorDelFormulario)
         }
-      });
+      })
+      
     }
   }
 
