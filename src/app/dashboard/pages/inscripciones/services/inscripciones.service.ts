@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Curso, Alumno, Inscripicion} from '../models';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, Observable, map, take } from 'rxjs';
 
 // CURSOS, ALUMNOS E INSCRIPCIOENS MOCKS //
 
@@ -98,6 +98,24 @@ export class InscripcionesService {
 
   getInscripciones(): Observable<Inscripicion[]> {
     return this.inscripciones$.asObservable();
+  }
+
+  getInscipcionesDeAlumnos(
+    AlumnoId: number
+  ): Observable<Inscripicion[] | undefined> {
+    return this.inscripciones$.pipe(
+      map((Inscripciones: any[]) =>
+        Inscripciones.filter((a: { alumno: { id: number; }; }) => a.alumno.id == AlumnoId)
+      )
+    );
+  }
+
+  getInscipcionesDeCurso(
+    cursoId: number
+  ): Observable<Inscripicion[] | undefined> {
+    return this.inscripciones$.pipe(
+      map((Inscripciones) => Inscripciones.filter((a) => a.curso.id == cursoId))
+    );
   }
 
   eliminarInscripcion(inscripcionId: number): Observable<Inscripicion[]> {

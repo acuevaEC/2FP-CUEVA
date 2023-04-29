@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlumnosService } from './services/alumnos.service';
+import { InscripcionesService } from '../inscripciones/services/inscripciones.service';
+import { AlumnoDetalleComponent } from './pages/alumno-detalle/alumno-detalle.component';
+import { Inscripicion } from '../inscripciones/models';
+
 
 export interface Alumno {
   id: number;
@@ -34,6 +38,7 @@ export class AlumnosComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private alumnosService: AlumnosService,
+    private InscripcionesService: InscripcionesService,
   ) {
     this.alumnosService.obtenerAlumnos()
       .subscribe((alumnos) => {
@@ -42,9 +47,23 @@ export class AlumnosComponent {
   }
 
   irAlDetalle(alumnoId: number): void {
-    this.router.navigate([alumnoId], {
-      relativeTo: this.activatedRoute,
-    });
+    this.alumnosService
+    .obtenerAlumnoPorId(alumnoId)
+    .subscribe((element: Alumno | undefined) => {
+      this.InscripcionesService
+        .getInscipcionesDeAlumnos(element!.id)
+        .subscribe((res: Inscripicion[] | undefined) => {
+          let inscs = res;
+          const dialog = this.matDialog.open(AlumnoDetalleComponent, {
+
+            data: {
+              element,
+              inscs,
+            },
+          });
+        });
+    })
+    
   }
 
   crearAlumno(): void {

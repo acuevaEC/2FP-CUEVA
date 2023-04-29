@@ -18,3 +18,4 @@ export class CursoNuevo {
   fecha_inicio_c: Date = new Date();
   fecha_fin_c: Date= new Date();
 }
+

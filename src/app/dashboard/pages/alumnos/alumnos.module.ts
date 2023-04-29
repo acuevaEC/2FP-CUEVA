@@ -8,10 +8,11 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlumnoDetalleComponent } from './pages/alumno-detalle/alumno-detalle.component';
 import { RouterModule } from '@angular/router';
+import { AlumnosRoutingModule } from './alumnos-routing.module';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    // AlumnosRoutingModule,
+    AlumnosRoutingModule,
     RouterModule.forChild([
       {
         path: '',

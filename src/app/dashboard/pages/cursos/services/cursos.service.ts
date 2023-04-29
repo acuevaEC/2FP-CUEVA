@@ -22,14 +22,11 @@ export class CursosService {
   }
 
 
-/*
+
   getCursoById(cursoId: number): Observable<Curso | undefined> {
-    return this.cursos$.asObservable()
-      .pipe(
-        map((cursos) => cursos.find((c) => c.id === cursoId))
-      )
+ return this.cursos$.pipe(map((Cursos) => Cursos.find((a) => a.id === cursoId)));
   }
-*/
+
 
 
 // LISTAR CURSOS //
